@@ -14,15 +14,18 @@ int main(void)
 		{
 			for (p = d + 1; p <= '9'; p++)
 			{
-			if ((p != d) != q)
+				for (q = p + 1; q <= '9'; q++)
 				{
-				putchar(d);
-				putchar(p);
-				putchar(q);
-			if (d == '7' && p == '8')
-				continue;
-					putchar(',');
-					putchar(' ');
+				if ((p != d) != q)
+					{
+					putchar(d);
+					putchar(p);
+					putchar(q);
+				if (d == '7' && p == '8' && q == '9')
+					continue;
+						putchar(',');
+						putchar(' ');
+					}
 				}
 			}
 		}
