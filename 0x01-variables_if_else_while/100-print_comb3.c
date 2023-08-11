@@ -7,30 +7,25 @@
  */
 int main(void)
 {
-	int i = '0';
-	int j = '0';
-		while (i <= '9')
-		{
-			while (j <= '9')
-			{
-				if (!(i > j) || i == j)
+	int i = 0
+			while (i < 100)
+	{
+			putchar((i / 10) + '0');
+			putchar((i % 10) + '0');
+				if (i < 89)
 				{
-					putchar(i);
-					putchar(j);
-					if (i == '8' && j == '9')
-					{
-						putchar('\n');
-					}
-					else
-					{
-						putchar(',');
-						putchar(' ');
-					}
+					putchar(',');
+					putchar(' ');
 				}
-				j++;
-			}
-			j = '0';
-			i++;
-		}
-return (0);
+				if (i % 10 == 9)
+				{
+					i += 11;
+				}
+				else
+				{
+					i++;
+				}
+	}
+	putchar('\n');
+	return (0);
 }
