@@ -14,12 +14,12 @@ int main(void)
 			putchar((i % 10) + '0');
 				if (i < 89)
 				{
-					putchar('44');
-					putchar('32');
+					putchar(',');
+					putchar(' ');
 				}
 				if (i % 10 == 9)
 				i{
-					i += 11;
+					i += 9;
 				}
 				else
 				{
