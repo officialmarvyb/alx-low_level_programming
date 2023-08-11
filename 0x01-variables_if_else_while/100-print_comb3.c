@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int i = '0';
+	int i = '1';
 			while (i < 100)
 	{
 			putchar((i / 10) + '0');
@@ -18,7 +18,7 @@ int main(void)
 					putchar(' ');
 				}
 				if (i % 10 == 9)
-				{
+				i{
 					i += 11;
 				}
 				else
