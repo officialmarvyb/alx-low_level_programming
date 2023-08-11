@@ -3,7 +3,7 @@
 #include <time.h>
 
 /**
- * main - A program that print the last digit a random number to the variable
+ * main - A program that print the last digit of random numbers
  * whether it is greater than 5, less than 6, or 0
  *
  * Return: Always 0 (Success)
@@ -26,7 +26,7 @@ int main(void)
 	}
 	else
 	{
-		printf("Last digit of %d is %d and 0\n",
+		printf("Last digit of %d is %d and is 0\n",
 			n, n % 10);
 	}
 	return (0);
