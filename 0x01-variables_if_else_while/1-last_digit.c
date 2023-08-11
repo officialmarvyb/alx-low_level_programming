@@ -3,8 +3,8 @@
 #include <time.h>
 
 /**
- * main - A program that print the last digit a random number to the variable n
- * whether it is greater than 5, less than 6, or 0.
+ * main - A program that print the last digit a random number to the variable
+ * whether it is greater than 5, less than 6, or 0
  *
  * Return: Always 0 (Success)
  */
