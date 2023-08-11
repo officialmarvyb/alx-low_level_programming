@@ -7,15 +7,15 @@
  */
 int main(void)
 {
-	int i = '1';
+	int i = '0';
 			while (i < 100)
 	{
 			putchar((i / 10) + '0');
 			putchar((i % 10) + '0');
 				if (i < 89)
 				{
-					putchar(',');
-					putchar(' ');
+					putchar('44');
+					putchar('32');
 				}
 				if (i % 10 == 9)
 				i{
