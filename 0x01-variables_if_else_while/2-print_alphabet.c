@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 
 /**
  * main - A C program that prints alphabets in lower case
@@ -8,12 +7,13 @@
  */
 int main(void)
 {
-int lowercase = 'a'
-while (lowercase <= 'z');
-{
-putchar(lowercase);
-lowercase += 1;
+	int lowercase = 'a';
+		while (lowercase <= 'z')
+	{
+		putchar(lowercase);
+		lowercase += 1;
+	}
+	putchar('\n');
+	return (0);
 }
-putchar('\n');
-return (0);
-}
+
