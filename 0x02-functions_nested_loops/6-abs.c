@@ -2,10 +2,10 @@
 
 /**
  * _abs - A function that computes
- * the absolute value of an integer.
- * @c: The character to be checked
+ * the absolute value of an integer
+ * @c: The value to be treated
  *
- * Return: 1 for lowercase character or 0 for failure
+ * Return: 1 for value of an int or 0 for failure
  */
 int _abs(int c)
 

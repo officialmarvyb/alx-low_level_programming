@@ -4,7 +4,7 @@
  * _isalpha - check the code.
  * @c: The character to be checked
  *
- * Return: 1 for lowercase character or 0 for failure
+ * Return: 1 for lowercase or uppercase character or 0
  */
 int _isalpha(int c)
 

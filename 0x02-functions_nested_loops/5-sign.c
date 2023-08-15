@@ -2,9 +2,9 @@
 
 /**
  * print_sign - A function that print the sign of a number
- * @n: The character to be checked
+ * @n: The number to be checked
  *
- * Return: 1 for lowercase character or 0 for failure
+ * Return: 1 for Sign of number or 0 for failure
  */
 int print_sign(int n)
 
