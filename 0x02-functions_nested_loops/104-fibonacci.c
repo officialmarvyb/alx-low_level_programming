@@ -18,12 +18,13 @@ int main(void)
 	{
 	next = a + b;
 	a = b;
+	b = next;
 	printf("%lu", next);
 
 	if (i < 97)
-	print(",");
+	printf(",");
 	i++;
 	}
-	putchar('\n')
+	putchar('\n');
 	return (0);
 }
