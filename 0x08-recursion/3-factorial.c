@@ -6,12 +6,15 @@
  * Return: factorial of number
  */
 
-int facitorial(int n)
+int factorial(int n)
 {
+/* Check for error condition: if n is negative, return -1.*/
 	if (n < 0)
 		return (-1);
-	else if (n < 2)
+/*Base case: factorial*/
+	else if (n <= 1)
 		return (n);
+/* Recursive step: n! = n * (n-1)!*/
 	else
 		return (n * factorial(n - 1));
 }
