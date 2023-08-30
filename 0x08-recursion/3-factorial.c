@@ -13,10 +13,10 @@ int factorial(int n)
 	{
 		return (-1);
 	}
-/*Base case: factorial of 0 is 1.*/
-	if (n == 0)
+/*Base case: factorial*/
+	if (n < 2)
 	{
-		return (1);
+		return (n);
 	}
 /* Recursive step: n! = n * (n-1)!*/
 	return (n * factorial(n - 1));
