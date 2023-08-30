@@ -1,4 +1,4 @@
-#include <main.h>
+#include "main.h"
 
 /**
  * factorial - return factorial of a given number.
@@ -6,15 +6,12 @@
  * Return: factorial of number
  */
 
-int factorial(int n)
+int facitorial(int n)
 {
-/* Check for error condition: if n is negative, return -1.*/
 	if (n < 0)
 		return (-1);
-/*Base case: factorial*/
 	else if (n < 2)
 		return (n);
-/* Recursive step: n! = n * (n-1)!*/
 	else
 		return (n * factorial(n - 1));
 }
