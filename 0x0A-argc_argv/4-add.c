@@ -14,17 +14,16 @@
 
 int main(int argc, char *argv[])
 {
-	int total = 0;
+	int total, i;
+	char *p;
 	int num;
 
 	total = 0;
 	if (argc > 1)
 	{
-		for (int i = 1; argc; i++)
+		for (i = 1; argv[i]; i++)
 		{
-			char *p;
-
-			num = strtol(argc, &p, 10);
+			num = strtol(argv[i], &p, 10);
 			if (*p == '\0')
 				total += num;
 			else
