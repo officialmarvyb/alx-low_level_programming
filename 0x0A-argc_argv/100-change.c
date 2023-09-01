@@ -21,7 +21,10 @@ int main(int argc, char *argv[])
 	total = 0;
 	if (argc <= 1)
 	{
-		for (i = 1; arg[i]; i++)
+		printf("0\n");
+		return (0);
+	}
+		for (i = 1; argv[i]; i++)
 		{
 			num = strtol(argv[i], &p, 10);
 			if (*p != '\0')
