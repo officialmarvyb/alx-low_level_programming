@@ -19,18 +19,18 @@ int main(int argc, char *argv[])
 	int num;
 
 	total = 0;
-	if (argc > 1)
+	if (argc <= 1)
 	{
 		for (i = 1; i < argc; i++)
 		{
 			num = strtol(argv[i], &p, 10);
 			if (*p != '\0')
-				total += num;
-			else
 			{
 				printf("Error\n");
 				return (1);
 			}
+			else
+				total += num;
 		}
 	}
 	printf("%d\n", total);
