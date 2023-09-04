@@ -20,7 +20,7 @@ char *create_array(unsigned int size, char c)
 	}
 
 	/*Allocate memory for the array using malloc*/
-	b = malloc(size * isizeof(c));
+	b = malloc(size * sizeof(c));
 	/*Check if succeed i.e if pointer is NULL or not*/
 	if (b == NULL)
 	{
