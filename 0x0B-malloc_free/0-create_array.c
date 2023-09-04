@@ -11,19 +11,25 @@
 char *create_array(unsigned int size, char c)
 {
 	unsigned int i = 0;
+	char *b;
 
+	/*Check if size is 0, and return Null if true*/
 	if (size == 0)
 	{
 		return (NULL);
 	}
-char *array = (char *)malloc(size * sizeof(char));
-	if (array == NULL)
+
+	/*Allocate memory for the array using malloc*/
+	b = malloc(size * isizeof(c));
+	/*Check if succeed i.e if pointer is NULL or not*/
+	if (b == NULL)
 	{
 		return (NULL);
 	}
+	/*Initialize the array with the specified character 'c'*/
 	for (i = 0; i < size; i++)
 	{
-		array[i] = c;
+		b[i] = c;
 	}
-	return (array);
+	return (b);
 }
