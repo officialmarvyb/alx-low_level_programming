@@ -34,26 +34,20 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (i = 0; s1[i]; i++)
 		len++;
 
-	/*Allocate memory for the concatenated string.*/
 	concat = malloc(sizeof(char) * (len + 1));
 
-	/*Check if memory allocation succeeded.*/
 	if (concat == NULL)
 	{
 	return (NULL); /*Return NULL on allocation failure.*/
 	}
-
 	len = 0;
 
-	/*Copy s1 into the concat pointer.*/
 	for (i = 0; s1[i]; i++)
 		concat[len++] = s1[i];
-
 	/*Concatenate the first n bytes of s2 to the concat.*/
 	for (i = 0; s2[i] && i < n; i++)
 		concat[len++] = s2[i];
 
 	concat[len] = '\0';
-
 	return (concat);
 }
