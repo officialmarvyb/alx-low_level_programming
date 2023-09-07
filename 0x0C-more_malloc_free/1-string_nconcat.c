@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * string_nconcat - Concatenates two strings using at
@@ -14,6 +15,9 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
+	char *concat;
+	unsigned int len = n, i;
+
 	/*If s1 is NULL, treat it as an empty string.*/
 	if (s1 == NULL)
 	{
@@ -27,15 +31,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 
 	/*Calculate the length of s2, but not exceeding n.*/
-	int n = strlen(s2);
-
-	if (n < len2)
-	{
-	len2 = n;
-	}
+	for (i = 0; s1[i]; i++)
+		len++;
 
 	/*Allocate memory for the concatenated string.*/
-	char *concat = malloc(strlen(s1) + len2 + 1);
+	concat = malloc(sizeof(char) * (len + 1));
 
 	/*Check if memory allocation succeeded.*/
 	if (concat == NULL)
@@ -43,10 +43,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	return (NULL); /*Return NULL on allocation failure.*/
 	}
 
+	len = 0;
+
 	/*Copy s1 into the concat pointer.*/
-	strcpy(concat, s1);
+	for (i = 0; s1[i]; i++)
+		concat[len++] = s1[i];
 
 	/*Concatenate the first n bytes of s2 to the concat.*/
-	strncat(concat, s2, len2);
+	for (i = 0; s2[i] && i < n; i++)
+		concat[len++] = s2[i];
+
+	concat[len] = '\0';
+
 	return (concat);
 }
