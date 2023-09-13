@@ -10,7 +10,7 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	if (name == NULL or f == NULL)
+	if (name == NULL || f == NULL)
 		return;
 	(*f)(name);/*Call the provided function pointer to print the name*/
 }
