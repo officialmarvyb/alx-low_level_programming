@@ -27,7 +27,7 @@ int op_sub(int a, int b)
  * op_mul - this function multiply two numbers
  * @a:the first number
  * @b:the second number.
- Return: return the result of the multiply.
+ * Return: return the result of the multiply.
  */
 int op_mul(int a, int b)
 {
@@ -43,9 +43,14 @@ int op_mul(int a, int b)
 int op_div(int a, int b)
 {
 	if (b != 0)
+	{
 		return (a / b);
+	}
+	else
+	{
 	printf("Error\n");
 	exit(100);
+	}
 }
 
 /**
@@ -56,8 +61,13 @@ int op_div(int a, int b)
  */
 int op_mod(int a, int b)
 {
-	if (b == 0)
+	if (b != 0)
+	{
 		return (a % b);
+	}
+	else
+	{
 	printf("Error\n");
 	exit(100);
+	}
 }
