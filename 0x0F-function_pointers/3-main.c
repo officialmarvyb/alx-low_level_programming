@@ -1,4 +1,4 @@
-include "3-calc.h"
+#include "3-calc.h"
 
 /**
  * main - Entry point
@@ -30,6 +30,6 @@ int main(int argc, char *argv[])
 	}
 	r = p(n1, n2);
 
-	printf("%d\n", result);
+	printf("%d\n", r);
 	return (0);
 }
