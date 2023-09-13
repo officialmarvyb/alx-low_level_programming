@@ -14,5 +14,6 @@ void print_name(char *name, void (*f)(char *))
 	{
 		return;
 	}
-	(*f)(name);/*Call the provided function pointer to print the name*/
+	(*f)(name);
+	/*Call the provided function pointer to print the name*/
 }
