@@ -8,32 +8,41 @@
 
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	char *separator = "";
+	va_list args; /*Declare a variable to hold the arguments*/
 	int i = 0;
-	char *str;
+	char *str, *separator = "";
 
-	va_start(args, format);
+	va_start(args, format);/* Init va_list with the variable num of args*/
+	if (format)
 
-	while (format && format[i])
+	while (format[i])
 	{
-		if (format[i] == 'c')
-			printf("%s%c", separator, va_arg(args, int));
-		else if (format[i] == 'i')
-			printf("%s%d", separator, va_arg(args, int));
-		else if (format[i] == 'f')
-			printf("%s%f", separator, va_arg(args, double));
-		else if (format[i] == 's')
+		switch (format[i])
 		{
-			str = va_arg(args, char *);
-			if (str == NULL)
-				str = "(nil)";
-			printf("%s%s", separator, str);
+			case 'c': /* Character*/
+				printf("%s%c", separator, va_arg(args, int));
+				break;
+			case 'i': /* Integer*/
+				printf("%s%d", separator, va_arg(args, int));
+				break;
+			case 'f': /* Float*/
+				printf("%s%f", separator, va_arg(args, double));
+				break;
+			case 's': /* String*/
+				str = va_arg(args, char *);
+				if (str == NULL)
+					str = "(nil)";
+				printf("%s%s", separator, str);
+				break;
+			default: /* Ignore other characters*/
+				i++;
+				continue;
 		}
 
-	separator = ", ";
-	i++;
+		separator = ", "; /* Set separator for subsequent values*/
+		i++;
 	}
-	printf("\n");
-	va_end(args);
+
+	printf("\n"); /* Print a new line at the end*/
+	va_end(args); /* Clean up the va_list*/
 }
