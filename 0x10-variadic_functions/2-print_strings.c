@@ -7,6 +7,7 @@
  * @n: The number of strings passed to the function.
  * @...: The variable number of string arguments.
  */
+
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list args; /*Declare a variable to hold the arguments*/
@@ -18,14 +19,14 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	{
 		char *str = va_arg(args, char *);/*Get the next argument as a string*/
 
-		if (str != NULL)
+		if (str == NULL)
+			printf("(nil)");/* Print nil for Null strings*/
+		else
 			printf("%s", str); /* Print the string */
 
 		if (separator != NULL && i != (n - 1))
 			printf("%s", separator);
 		/*Print the separator if it's not NULL & not the last string*/
-		else
-			printf("(nil)");/* Print (nil) for NULL strings*/
 	}
 	printf("\n"); /* Print a new line at the end*/
 
