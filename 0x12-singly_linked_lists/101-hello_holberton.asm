@@ -1,15 +1,16 @@
 section .data
-	msg:	db "Hello, Holberton", 0
-	fmt:	db "%s", 10, 0
+    msg: db "Hello, Holberton",10,0 ; The string to be printed, followed by a new line and null terminator
+    format: db "%s",0                ; Format specifier for printf
 
 section .text
-	extern printf
-	global main
-main:
-	mov esi, msg
-	mov edi, fmt
-	mov eax, 0
-	call printf
+    global main
+    extern printf
 
-	mov eax, 0
-	ret
+main:
+    push rbp                        ; Save base pointer
+    mov rdi, format                ; Load format specifier into rdi
+    mov rsi, msg                 ; Load address of the string into rsi
+    call printf                    ; Call the printf function
+
+    pop rbp                         ; Restore base pointer
+    ret                            ; Return from main

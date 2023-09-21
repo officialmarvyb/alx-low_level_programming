@@ -11,7 +11,7 @@ main:
     push rbp
     mov rdi, format
     mov rsi, msg
-    call printf  
+    call printf
 
     mov eax, 60
     xor rdi, rdi
