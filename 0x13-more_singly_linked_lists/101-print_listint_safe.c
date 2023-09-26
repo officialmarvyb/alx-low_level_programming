@@ -18,9 +18,9 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		size_t j;
 
-		for (j = 0; i < cnode; i++)/* Check for a loop */
+		for (j = 0; j < cnode; j++)/* Check for a loop */
 		{
-			if (curr == nodes[i])
+			if (curr == nodes[j])
 			{
 			printf("-> [%p] %d\n", (void *)curr, curr->n);
 			return (cnode);
