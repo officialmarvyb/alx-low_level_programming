@@ -9,33 +9,26 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *tortoise, *hare;
-	size_t cnode = 0;/*Initialize a counter to track num of nodes*/
+	size_t cnode = 0;
+	const listint_t *curr;
+	const listint_t *nodes[10000];/* Assuming a max of 10,000 nodes */
 
-	tortoise = head;/*Initialize tortoise to the head of the list*/
-	hare = head;/*Initialize hare to the head of the list*/
-
-	while (hare != NULL && hare->next != NULL)
+	curr = head;
+	while (curr != NULL)
 	{
-		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
-		/*Print the current node's address and value*/
-		tortoise = tortoise->next;/*Move tortoise one step*/
-		hare = hare->next->next;/*Move hare two steps*/
-		cnode++;
+		size_t j;
 
-		if (tortoise == hare)/*If tort & hare meet-loop detected*/
+		for (j = 0; i < cnode; i++)/* Check for a loop */
 		{
-			printf("-> [%p] %d\n", (void *)tortoise, tortoise->n);
-			exit(98);
+			if (curr == nodes[i])
+			{
+			printf("-> [%p] %d\n", (void *)curr, curr->n);
+			return (cnode);
+			}
 		}
+		printf("[%p] %d\n", (void *)curr, curr->n);/* Print current node */
+		nodes[cnode++] = curr;/* Add current node to the array */
+	curr = curr->next;
 	}
-
-	while (tortoise != NULL)
-	{
-		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
-		tortoise = tortoise->next;
-		cnode++;
-	}
-
 	return (cnode);
 }
