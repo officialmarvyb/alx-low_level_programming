@@ -13,9 +13,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *nwnode, *curr = *head;
 	unsigned int j;
+
 	j = 0;
-
-
 	/*Create a new node & check if mem alloc was successful*/
 	nwnode = malloc(sizeof(listint_t));
 	if (nwnode == NULL)
@@ -34,11 +33,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	{
 		if (curr == NULL)
 		{
-			free(new_node);
+			free(nwnode);
 			return (NULL);
 		}
 		curr = curr->next;
-        	/*j++;*/
 	}
 
 	/*Insert the new node at the specified position*/
