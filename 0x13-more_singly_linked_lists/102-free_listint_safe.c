@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * free_listint_safe - Frees a listint_t linked list.
+ * free_listint_safe - Frees a listint_t linked list safely.
  * @h: Pointer to a pointer to the head of the list.
  *
  * Return: The size of the list that was freed.
@@ -9,24 +9,22 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	size_t cnode = 0;/* Initialize a counter for the number of nodes */
-	listint_t *curr, *nxt;/* Declare pointers to traverse the list */
+	size_t cnode = 0;/*Counter for the number of nodes*/
+	listint_t *tmp;/*Temporary pointer to hold the next node*/
 
-	if (h == NULL || *h == NULL)
-		return (0);/* If the list is empty or uninitialized, rtun 0*/
-	curr = *h;/* Start from the head of the list */
-	while (curr != NULL)
+	while (*h)/*Continue while the head pointer is not NULL*/
 	{
-		nxt = curr->next; /* Store the next node in 'next' */
-		free(curr);/* Free the current node */
-		cnode++;/* Increment the node count */
-		/* Check if we have reached a loop in the list */
-		if (nxt != NULL && nxt >= nxt->next)
+	/*Check if current node points to a previously visited node or itself*/
+		if (*h <= (*h)->next)
 		{
-			*h = NULL;/*Set head to NULL avoid issues with list*/
-			break;/*Exit the loop to avoid infinite looping */
+			*h = NULL;/*Set head to NULL to break the loop*/
+			cnode++;/*Increment the node count*/
+			break;/*Exit the loop*/
 		}
-		curr = nxt; /* Move to the next node in the list */
+		tmp = (*h)->next;/*Store the next node in a temporary pointer*/
+		free(*h);/*Free the current node*/
+		*h = tmp;/*Move the head to the next node*/
+		cnode++;/*Increment the node count*/
 	}
-	return (cnode);/*Return the size of the list that was freed */
+	return (cnode);/*Return the number of nodes freed*/
 }
