@@ -1,30 +1,73 @@
 #include "lists.h"
 
 /**
- * free_listint_safe - Frees a listint_t linked list safely.
- * @h: Pointer to a pointer to the head of the list.
+ * free_listp2 - frees a linked list
+ * @head: head of a list.
  *
- * Return: The size of the list that was freed.
+ * Return: no return.
+ */
+
+void free_listp2(listp_t **head)
+{
+	listp_t *tmp;
+	listp_t *nxt;
+
+	if (head != NULL)
+	{
+		node = *head;
+		while ((tmp = nxt) != NULL)
+		{
+			node = nxt->next;
+			free(tmp);
+		}
+		*head = NULL;
+	}
+}
+
+/**
+ * free_listint_safe - frees a linked list.
+ * @h: head of a list.
+ *
+ * Return: size of the list that was freed.
  */
 
 size_t free_listint_safe(listint_t **h)
 {
-	size_t cnode = 0;/*Counter for the number of nodes*/
-	listint_t *tmp;/*Temporary pointer to hold the next node*/
+	size_t cnodes = 0;
+	listp_t *hptr = NULL, *w, *sum;
+	listint_t *tmp;
 
-	while (*h)/*Continue while the head pointer is not NULL*/
+	while (*h != NULL)
 	{
-	/*Check if current node points to a previously visited node or itself*/
-		if (*h <= (*h)->next)
+		new = malloc(sizeof(listp_t));
+		if (w == NULL)
+			exit(98);
+
+		w->p = (void *)*h;
+		w->next = hptr;
+		hptr = w;
+
+		sum = hptr;
+
+		while (sum->next != NULL)
 		{
-			*h = NULL;/*Set head to NULL to break the loop*/
-			cnode++;/*Increment the node count*/
-			break;/*Exit the loop*/
+			sum = sum->next;
+			if (*h == sum->p)
+			{
+				*h = NULL;
+				free_listp2(&hptr);
+				return (cnodes);
+			}
 		}
-		tmp = (*h)->next;/*Store the next node in a temporary pointer*/
-		free(*h);/*Free the current node*/
-		*h = tmp;/*Move the head to the next node*/
-		cnode++;/*Increment the node count*/
+
+		tmp = *h;
+		*h = (*h)->next;
+		free(tmp);
+		cnodes++;
 	}
-	return (cnode);/*Return the number of nodes freed*/
+
+	*h = NULL;
+	free_listp2(&hptr);
+	return (cnodes);
 }
+
