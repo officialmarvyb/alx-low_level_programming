@@ -14,10 +14,10 @@ void free_listp2(listp_t **head)
 
 	if (head != NULL)
 	{
-		node = *head;
+		nxt = *head;
 		while ((tmp = nxt) != NULL)
 		{
-			node = nxt->next;
+			nxt = nxt->next;
 			free(tmp);
 		}
 		*head = NULL;
@@ -39,7 +39,7 @@ size_t free_listint_safe(listint_t **h)
 
 	while (*h != NULL)
 	{
-		new = malloc(sizeof(listp_t));
+		w = malloc(sizeof(listp_t));
 		if (w == NULL)
 			exit(98);
 
