@@ -1,6 +1,4 @@
 #include "lists.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 /**
  * print_listint_safe - Prints a listint_t linked list.
@@ -11,26 +9,27 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t cnode = 0;
-	const listint_t *curr;
-	const listint_t *nodes[10000];/*Assuming a max of 10,000 nodes*/
+	const listint_t *tortoise, *hare;
+	size_t cnode = 0;/*Initialize a counter to track num of nodes*/
 
-	curr = head;
-	while (curr != NULL)
+	tortoise = head;/*Initialize tortoise to the head of the list*/
+	hare = head;/*Initialize hare to the head of the list*/
+
+	while (hare != NULL && hare->next != NULL)
 	{
-		size_t j;
+		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
+		/*Print the current node's address and value*/
+		tortoise = tortoise->next;/*Move tortoise one step*/
+		hare = hare->next->next;/*Move hare two steps*/
+		cnode++;
 
-		for (j = 0; j < cnode; j++)/* Check for a loop */
+		if (tortoise == hare)/*If tort & hare meet-loop detected*/
 		{
-			if (curr == nodes[j])
-			{
-			printf("-> [%p] %d\n", (void *)curr, curr->n);
-			return (cnode);
-			}
+			printf("-> [%p] %d\n", (void *)tortoise, tortoise->n);
+			break;
+		/* break out if loop is detected to prevent infinite loop*/
 		}
-		printf("[%p] %d\n", (void *)curr, curr->n);/* Print current node */
-		nodes[cnode++] = curr;/* Add current node to the array */
-		curr = curr->next;
 	}
+
 	return (cnode);
 }
