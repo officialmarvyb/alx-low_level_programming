@@ -27,7 +27,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	else
 	{
 		curr = *head; /*Initialize 'curr' to head of the list*/
-		while (current->next != NULL)
+		while (curr->next != NULL)
 		{
 			curr = curr->next;/*Traverse list until end is reachd*/
 		}
