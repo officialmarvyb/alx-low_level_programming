@@ -26,9 +26,15 @@ size_t print_listint_safe(const listint_t *head)
 		if (tortoise == hare)/*If tort & hare meet-loop detected*/
 		{
 			printf("-> [%p] %d\n", (void *)tortoise, tortoise->n);
-			break;
-		/* break out if loop is detected to prevent infinite loop*/
+			exit(98);
 		}
+	}
+
+	while (tortoise != NULL)
+	{
+		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
+		tortoise = tortoise->next;
+		cnode++;
 	}
 
 	return (cnode);
