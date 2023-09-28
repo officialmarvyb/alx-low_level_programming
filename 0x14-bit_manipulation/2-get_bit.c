@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * set_bit - Sets the value of a bit to 1 at a given index.
+ * get_bit - Sets the value of a bit to 1 at a given index.
  * @n: Pointer to an unsigned long int.
  * @index: Index of the bit.
  *
