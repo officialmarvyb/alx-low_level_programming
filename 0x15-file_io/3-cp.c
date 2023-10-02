@@ -37,7 +37,7 @@ while (i == 1024)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	j = write(file_to, buffer, j);
+	j = write(file_to, buffer, i);
 	if (j < i)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 }
