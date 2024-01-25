@@ -1,7 +1,7 @@
 #recompile only the updated source files
 
 CC = gcc
-SRC = $(*.c)
+SRC = school.c main.c)
 OBJ = $(SRC:.c=.o)
 NAME = school
 RM = rm -f
@@ -16,14 +16,14 @@ $(NAME): $(OBJ)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) -f $(OBJ)
 	$(RM) *~
 	$(RM) \#*\#
 
 oclean:
-	$(RM) $(OBJ)
+	$(RM)-f  $(OBJ)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean: clean oclean
 
-re: fclean all
+
+re: oclean all
